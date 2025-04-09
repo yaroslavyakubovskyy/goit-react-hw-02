@@ -51,7 +51,6 @@ export const App = () => {
       ) : (
         <Notification />
       )}
-      ;
     </div>
   );
 };
