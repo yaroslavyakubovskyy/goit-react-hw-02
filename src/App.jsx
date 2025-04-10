@@ -38,13 +38,14 @@ export const App = () => {
     <div className={s.container}>
       <Description />
       <Options
+        options={Object.keys(feedbacks)}
         updateFeedback={updateFeedback}
         resetFeedback={resetFeedback}
         totalFeedback={totalFeedback}
       />
       {totalFeedback > 0 ? (
         <Feedback
-          feedbacks={feedbacks}
+          outputFeedback={Object.entries(feedbacks)}
           totalFeedback={totalFeedback}
           positiveFeedback={positiveFeedback}
         />
