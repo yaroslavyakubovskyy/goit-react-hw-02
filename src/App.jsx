@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import s from './App.module.css';
 import Description from './components/Description/Description.jsx';
 import Feedback from './components/Feedback/Feedback.jsx';
 import Options from './components/Options/Options.jsx';
@@ -35,7 +34,7 @@ export const App = () => {
     totalFeedback > 0 ? Math.round((feedbacks.good / totalFeedback) * 100) : 0;
 
   return (
-    <div className={s.container}>
+    <div>
       <Description />
       <Options
         options={Object.keys(feedbacks)}
