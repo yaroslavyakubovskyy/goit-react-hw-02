@@ -3,6 +3,7 @@ import Description from './components/Description/Description.jsx';
 import Feedback from './components/Feedback/Feedback.jsx';
 import Options from './components/Options/Options.jsx';
 import Notification from './components/Notification/Notification.jsx';
+import s from './App.module.css';
 
 export const App = () => {
   const [feedbacks, setFeedbacks] = useState(() => {
@@ -17,10 +18,10 @@ export const App = () => {
   }, [feedbacks]);
 
   const updateFeedback = feedbackType => {
-    setFeedbacks({
-      ...feedbacks,
-      [feedbackType]: feedbacks[feedbackType] + 1,
-    });
+    setFeedbacks(prevFeedback => ({
+      ...prevFeedback,
+      [feedbackType]: prevFeedback[feedbackType] + 1,
+    }));
   };
 
   const resetFeedback = () => {
@@ -34,7 +35,7 @@ export const App = () => {
     totalFeedback > 0 ? Math.round((feedbacks.good / totalFeedback) * 100) : 0;
 
   return (
-    <div>
+    <div className={s.container}>
       <Description />
       <Options
         options={Object.keys(feedbacks)}
